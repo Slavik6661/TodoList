@@ -53,7 +53,7 @@ function addElement(value) {
 }
 
 function recordInLocalStorage(arrayTasks) {
-  // Save arrayTasks in localStorage
+  // Save arrayTasks in localStorage/
   localStorage.setItem("tasks", JSON.stringify(arrayTasks));
 }
 
