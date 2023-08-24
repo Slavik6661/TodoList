@@ -1,0 +1,56 @@
+
+body {
+    height: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-between;  */
+    
+}
+.content{
+    background-color: #f4f4f4;
+    width: 800px;
+    height: 800px;
+    /* text-align: center; */
+    margin: 0 auto;
+}
+.tasck-input{
+    width: 500px;
+    height: 50px;
+    font-size: 23px;
+    border: 0;
+    border-bottom: 1px solid #000;
+    background-color: rgba(0,0,0,0);
+    outline: 0; 
+}
+.tasck-block{ 
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.todoTask{
+    width: 500px;
+    height: 50px;
+    margin-right: 0px;
+    margin-left: 125px;
+    margin-top: 0px;
+    background-color: aquamarine;
+}
+.todo__item{
+    list-style-type: none; 
+}
+.blokTask{
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.deleteBtn{
+    width: 48px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
