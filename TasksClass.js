@@ -22,6 +22,8 @@ export default class TasksElements {
     this.deleteButton = document.createElement("button");
     this.deleteButton.className = "deleteBtn";
     this.deleteButton.id = this.id;
+
+    this.deleteButton.addEventListener("click", (e) => {});
   }
 
   createContentTask() {
