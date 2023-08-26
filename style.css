@@ -2,17 +2,23 @@
 body {
     height: 100%;
     display: flex;
-    /* flex-direction: column; */
-    /* justify-content: space-between;  */
-    
+    justify-content: center   
 }
+.Additional_options{
+    display: grid;
+    height: 250px; 
+}
+
+
 .content{
     background-color: #f4f4f4;
     width: 800px;
     height: 800px;
-    /* text-align: center; */
     margin: 0 auto;
+    margin-left: 10px;
+    margin-right: 0px;
 }
+
 .tasck-input{
     width: 500px;
     height: 50px;
@@ -34,7 +40,7 @@ body {
     margin-right: 0px;
     margin-left: 125px;
     margin-top: 0px;
-    background-color: aquamarine;
+    background-color: rgb(220, 241, 234);
 }
 .todo__item{
     list-style-type: none; 
@@ -54,3 +60,42 @@ body {
     margin-bottom: 0px;
 }
 
+.todoTaskActive_Every_Even{
+    width: 500px;
+    height: 50px;
+    margin-right: 0px;
+    margin-left: 125px;
+    margin-top: 0px;
+    border-radius: 3px;
+    background-color: rgb(26, 221, 156);
+}
+
+.todoTaskActive_Every_Odd_One{
+    width: 500px;
+    height: 50px;
+    margin-right: 0px;
+    margin-left: 125px;
+    margin-top: 0px;
+    border-radius: 3px;
+    background-color: rgb(101, 156, 238);
+}
+
+.highlight_Every_Even{
+    width: auto;
+    height: 50px;
+}
+
+.highlight_Every_Odd_One{
+    width: auto;
+    height: 50px;
+}
+
+.delete_fierst_element{
+    width: auto;
+    height: 50px;
+}
+
+.delete_last_element{
+    width: auto;
+    height: 50px
+}

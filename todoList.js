@@ -1,89 +1,99 @@
-import taskManagerClass from "./taskManagerClass.js";
-const inputId = document.getElementById("InputID");
-const contentPage = document.getElementById("content-page");
-const todoListli = document.getElementById("todo__item");
+import selectElementsClass from "./selectElementsClass.js";
+import createTasks from "./TasksClass.js";
+let inputId = document.getElementById("InputID");
+let todoListli = document.getElementById("todo__item");
+let btnEveryEven = document.getElementById("highlight_Every_Even");
+let btnEachIsNotEven = document.getElementById("highlight_Every_Odd_One");
 
 let arrayTodoList = [];
 let id = 0;
-let taskManager = new taskManagerClass();
-taskManager.test();
+let btnEveryEvenState = false;
+let btnEachIsNotEvenState = false;
 
 let renderTasks = new createTasks();
 //let selectElements = new selectElementsClass();
 
 if (arrayTodoList.length === 0) {
-  arrayTodoList = loadTasks(storedTasks) || [];
+  arrayTodoList = renderTasks.loadTasks() || [];
 }
 
-inputId.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    arrayTodoList.push({ id: id, text: inputId.value, completed: false });
-    recordInLocalStorage(arrayTodoList);
-    addElement(inputId.value);
-    inputId.value = "";
-    //id++;
-  }
-});
+// btnEveryEven.addEventListener("click", (e) => {
+//   btnEveryEvenState = !btnEveryEvenState;
+//   selectElements.highlightEveryEven(btnEveryEvenState);
+// });
 
-function addElement(value) {
-  // create a new div element
-  const contentTask = document.createElement("div");
-  contentTask.className = "blokTask";
-  contentTask.id = id;
+// btnEachIsNotEven.addEventListener("click", (e) => {
+//   btnEachIsNotEvenState = !btnEachIsNotEvenState;
+//   selectElements.highlightEveryOdd(btnEachIsNotEvenState);
+// });
 
-  const newDiv = document.createElement("div");
-  newDiv.className = "todoTask";
+// inputId.addEventListener("keypress", (e) => {
+//   if (e.key === "Enter") {
+//     arrayTodoList.push({ id: id, text: inputId.value, completed: false });
+//     recordInLocalStorage(arrayTodoList);
+//     addElement(inputId.value);
+//     inputId.value = "";
+//   }
+// });
 
-  const deleteButton = document.createElement("button");
-  deleteButton.className = "deleteBtn";
-  deleteButton.id = id;
-  deleteButton.addEventListener("click", (e) => {
-    deleteTask(e.target.id);
-    console.log(e.target.id);
-    id = 0;
-  });
+//renderTasks.renderTasks();
+//renderTasks.loadTasks();
 
-  // and give it some content
-  const newContent = document.createTextNode(value);
-  // add the text node to the newly created div
-  newDiv.appendChild(newContent);
-  //document.body.insertBefore(newDiv, todoListli);
-  contentTask.appendChild(newDiv);
-  contentTask.appendChild(deleteButton);
-  todoListli.appendChild(contentTask);
-  id++;
-}
+// function addElement(value) {
+//   // create a new div element
+//   const contentTask = document.createElement("div");
+//   contentTask.className = "blokTask";
+//   contentTask.id = id;
 
-function recordInLocalStorage(arrayTasks) {
-  // Save arrayTasks in localStorage/
-  localStorage.setItem("tasks", JSON.stringify(arrayTasks));
-}
+//   const newDiv = document.createElement("div");
+//   newDiv.className = "todoTask";
 
-function loadTasks(storedTasks) {
-  if (storedTasks) {
-    storedTasks.forEach((element) => {
-      addElement(element.text);
-    });
-    return storedTasks;
-  }
-}
+//   const deleteButton = document.createElement("button");
+//   deleteButton.className = "deleteBtn";
+//   deleteButton.id = id;
+//   deleteButton.addEventListener("click", (e) => {
+//     deleteTask(e.target.id);
+//     console.log(e.target.id);
+//     id = 0;
+//   });
 
-function deleteTask(idElementToRemove) {
-  idElementToRemove = Number(idElementToRemove);
-  storedTasks = JSON.parse(localStorage.getItem("tasks"));
-  recordInLocalStorage((storedTasks = []));
-  todoListli.innerText = "";
+//   // and give it some content
+//   const newContent = document.createTextNode(value);
+//   // add the text node to the newly created div
+//   newDiv.appendChild(newContent);
+//   //document.body.insertBefore(newDiv, todoListli);
+//   contentTask.appendChild(newDiv);
+//   contentTask.appendChild(deleteButton);
+//   todoListli.appendChild(contentTask);
+//   id++;
+// }
 
-  if (idElementToRemove === 0) {
-    arrayTodoList.splice(idElementToRemove, 1);
-  }
-  arrayTodoList.splice(idElementToRemove, idElementToRemove);
-  recordInLocalStorage(arrayTodoList);
-  storedTasks = JSON.parse(localStorage.getItem("tasks"));
-  id = 0;
-  loadTasks(storedTasks);
-}
+// function recordInLocalStorage(arrayTasks) {
+//   // Save arrayTasks in localStorage/
+//   localStorage.setItem("tasks", JSON.stringify(arrayTasks));
+// }
 
-function selectEveryFourthElement() {
-  return true;
-}
+// function loadTasks(storedTasks) {
+//   if (storedTasks) {
+//     storedTasks.forEach((element) => {
+//       addElement(element.text);
+//     });
+//     return storedTasks;
+//   }
+// }
+
+// function deleteTask(idElementToRemove) {
+//   idElementToRemove = Number(idElementToRemove);
+//   storedTasks = JSON.parse(localStorage.getItem("tasks"));
+//   recordInLocalStorage((storedTasks = []));
+//   todoListli.innerText = "";
+
+//   arrayTodoList.splice(idElementToRemove, 1);
+//   console.log(arrayTodoList);
+//   recordInLocalStorage(arrayTodoList);
+//   storedTasks = JSON.parse(localStorage.getItem("tasks"));
+//   id = 0;
+//   loadTasks(storedTasks);
+//   selectElements.highlightEveryEven(btnEveryEvenState);
+//   selectElements.highlightEveryOdd(btnEachIsNotEvenState);
+// }
