@@ -11,21 +11,23 @@ let btnEveryEvenState = false;
 let btnEachIsNotEvenState = false;
 
 let renderTasks = new createTasks();
-//let selectElements = new selectElementsClass();
+let selectElements = new selectElementsClass();
 
 if (arrayTodoList.length === 0) {
   arrayTodoList = renderTasks.loadTasks() || [];
 }
 
-// btnEveryEven.addEventListener("click", (e) => {
-//   btnEveryEvenState = !btnEveryEvenState;
-//   selectElements.highlightEveryEven(btnEveryEvenState);
-// });
+renderTasks.addNewTask(arrayTodoList);
 
-// btnEachIsNotEven.addEventListener("click", (e) => {
-//   btnEachIsNotEvenState = !btnEachIsNotEvenState;
-//   selectElements.highlightEveryOdd(btnEachIsNotEvenState);
-// });
+btnEveryEven.addEventListener("click", (e) => {
+  btnEveryEvenState = !btnEveryEvenState;
+  selectElements.highlightEveryEven(btnEveryEvenState);
+});
+
+btnEachIsNotEven.addEventListener("click", (e) => {
+  btnEachIsNotEvenState = !btnEachIsNotEvenState;
+  selectElements.highlightEveryOdd(btnEachIsNotEvenState);
+});
 
 // inputId.addEventListener("keypress", (e) => {
 //   if (e.key === "Enter") {
