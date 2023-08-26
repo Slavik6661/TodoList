@@ -75,4 +75,20 @@ export default class TasksElements {
       }
     });
   }
+
+  deleteTask(idElementToRemove) {
+    idElementToRemove = Number(idElementToRemove);
+    storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    recordInLocalStorage((storedTasks = []));
+    todoListli.innerText = "";
+
+    arrayTodoList.splice(idElementToRemove, 1);
+    console.log(arrayTodoList);
+    recordInLocalStorage(arrayTodoList);
+    storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    id = 0;
+    loadTasks(storedTasks);
+    selectElements.highlightEveryEven(btnEveryEvenState);
+    selectElements.highlightEveryOdd(btnEachIsNotEvenState);
+  }
 }
