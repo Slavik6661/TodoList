@@ -8,7 +8,9 @@ let id = 0;
 let taskManager = new taskManagerClass();
 taskManager.test();
 
-let storedTasks = JSON.parse(localStorage.getItem("tasks"));
+let renderTasks = new createTasks();
+//let selectElements = new selectElementsClass();
+
 if (arrayTodoList.length === 0) {
   arrayTodoList = loadTasks(storedTasks) || [];
 }
