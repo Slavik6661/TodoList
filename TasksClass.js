@@ -13,6 +13,8 @@ export default class TasksElements {
     this.arrayTodoList = [];
     this.btnEveryEvenState;
     this.btnEachIsNotEvenState;
+    this.taskComplied;
+    this.btnComplied;
   }
 
   createNewDiv(value) {
@@ -21,6 +23,17 @@ export default class TasksElements {
 
     this.newContent = document.createTextNode(value);
     this.newDiv.appendChild(this.newContent);
+  }
+
+  createCompliedButton() {
+    this.taskComplied = document.createElement("button");
+    this.taskComplied.className = "in-progress";
+    this.taskComplied.id = this.id;
+
+    this.taskComplied.addEventListener("click", (e) => {
+      e.target.className;
+      this.completedTask(e.currentTarget);
+    });
   }
 
   createDeleteButton() {
@@ -39,6 +52,7 @@ export default class TasksElements {
     this.contentTask.className = "blokTask";
     this.contentTask.id = this.id;
 
+    this.contentTask.appendChild(this.taskComplied);
     this.contentTask.appendChild(this.newDiv);
     this.contentTask.appendChild(this.deleteButton);
   }
@@ -46,11 +60,22 @@ export default class TasksElements {
   renderTasks(value) {
     this.todoListli = document.getElementById("todo__item");
 
+    this.btnEveryEvenState = JSON.parse(
+      localStorage.getItem("btnEveryEvenState")
+    );
+    this.btnEachIsNotEvenState = JSON.parse(
+      localStorage.getItem("btnEachIsNotEvenState")
+    );
+
     this.createNewDiv(value);
+    this.createCompliedButton();
     this.createDeleteButton();
     this.createContentTask();
     this.id++;
     this.todoListli.appendChild(this.contentTask);
+
+    selectElements.highlightEveryEven(this.btnEveryEvenState);
+    selectElements.highlightEveryOdd(this.btnEachIsNotEvenState);
   }
 
   loadTasks() {
@@ -100,13 +125,63 @@ export default class TasksElements {
     this.storedTasks = JSON.parse(localStorage.getItem("tasks"));
     this.id = 0;
     this.loadTasks(this.storedTasks);
-    this.btnEveryEvenState = JSON.parse(
-      localStorage.getItem("btnEveryEvenState")
-    );
-    this.btnEachIsNotEvenState = JSON.parse(
-      localStorage.getItem("btnEachIsNotEvenState")
-    );
-    selectElements.highlightEveryEven(this.btnEveryEvenState);
-    selectElements.highlightEveryOdd(this.btnEachIsNotEvenState);
+  }
+
+  deleteLastElement() {
+    this.storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (this.arrayTodoList.length === 0) {
+      this.arrayTodoList = [...this.storedTasks];
+    }
+
+    localStorage.setItem("tasks", JSON.stringify((this.storedTasks = [])));
+
+    this.todoListli.innerText = "";
+
+    this.arrayTodoList.pop();
+
+    localStorage.setItem("tasks", JSON.stringify(this.arrayTodoList));
+    this.storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    this.id = 0;
+    this.loadTasks(this.storedTasks);
+  }
+
+  deleteFirstElement() {
+    this.storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (this.arrayTodoList.length === 0) {
+      this.arrayTodoList = [...this.storedTasks];
+    }
+
+    localStorage.setItem("tasks", JSON.stringify((this.storedTasks = [])));
+
+    this.todoListli.innerText = "";
+
+    this.arrayTodoList.shift();
+
+    localStorage.setItem("tasks", JSON.stringify(this.arrayTodoList));
+    this.storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    this.id = 0;
+    this.loadTasks(this.storedTasks);
+  }
+
+  completedTask(idElementToComplied) {
+    console.log(idElementToComplied);
+    idElementToComplied.classList.add("in-progress-complied");
+    console.log(idElementToComplied);
+
+    //   this.storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    //   if (this.arrayTodoList.length === 0) {
+    //     this.arrayTodoList = [...this.storedTasks];
+    //   }
+
+    //   localStorage.setItem("tasks", JSON.stringify((this.storedTasks = [])));
+
+    //   this.todoListli.innerText = "";
+
+    //   this.arrayTodoList.splice(idElementToRemove, 1);
+
+    //   localStorage.setItem("tasks", JSON.stringify(this.arrayTodoList));
+    //   this.storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    //   this.id = 0;
+    //   this.loadTasks(this.storedTasks);
   }
 }

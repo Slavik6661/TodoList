@@ -38,7 +38,7 @@ body {
     width: 500px;
     height: 50px;
     margin-right: 0px;
-    margin-left: 125px;
+    margin-left: 0px;
     margin-top: 0px;
     background-color: rgb(220, 241, 234);
 }
@@ -50,6 +50,7 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
+    justify-content: center;
 }
 
 .deleteBtn{
@@ -58,7 +59,27 @@ body {
     padding-right: 1px;
     margin-top: 0px;
     margin-bottom: 0px;
+    border-radius: 5px;
+    border: 0px;
+    padding: 0px;
+    background-image: url('/img/icons8-удалить-навсегда-48.png');
+    background-repeat: no-repeat;
 }
+.deleteBtn:hover{
+    width: 48px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    border: 0px;
+    padding: 0px;
+    background-image: url('/img/icons8-удалить-навсегда-48.png');
+    background-repeat: no-repeat;
+    background-color: rgb(207, 87, 93);
+}
+
+
 
 .todoTaskActive_Every_Even{
     width: 500px;
@@ -90,7 +111,7 @@ body {
     height: 50px;
 }
 
-.delete_fierst_element{
+.delete_first_element{
     width: auto;
     height: 50px;
 }
@@ -98,4 +119,32 @@ body {
 .delete_last_element{
     width: auto;
     height: 50px
+}
+.in-progress{
+    
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 5px;
+    padding: 1px;
+    border: 1px;
+    font-size: 40px;
+    color: white;
+    background-color: #20b63d;
+    background-image: url('./img/icons8-добавить-50.png');
+    background-repeat: no-repeat;
+}
+
+.in-progress-complied{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 5px;
+    padding: 1px;
+    border: 1px;
+    font-size: 40px;
+    color: white;
+    background-color: #3adb8a;
+    background-image: url('./img/icons8-галочка-48.png');
+    background-repeat: no-repeat;
 }

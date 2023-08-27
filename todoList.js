@@ -1,7 +1,10 @@
 import selectElementsClass from "./selectElementsClass.js";
 import createTasks from "./TasksClass.js";
-let inputId = document.getElementById("InputID");
-let todoListli = document.getElementById("todo__item");
+
+let taskManager = new createTasks();
+let selectElements = new selectElementsClass();
+let deleteFirstElement = document.getElementById("delete_first_element");
+let deleteLastElement = document.getElementById("delete_last_element");
 let btnEveryEven = document.getElementById("highlight_Every_Even");
 let btnEachIsNotEven = document.getElementById("highlight_Every_Odd_One");
 
@@ -12,8 +15,9 @@ localStorage.setItem(
   "btnEachIsNotEvenState",
   JSON.stringify(btnEachIsNotEvenState)
 );
-let renderTasks = new createTasks();
-let selectElements = new selectElementsClass();
+
+taskManager.loadTasks();
+taskManager.addNewTask();
 
 btnEveryEven.addEventListener("click", (e) => {
   btnEveryEvenState = !btnEveryEvenState;
@@ -31,9 +35,13 @@ btnEachIsNotEven.addEventListener("click", (e) => {
 
   selectElements.highlightEveryOdd(btnEachIsNotEvenState);
 });
+deleteLastElement.addEventListener("click", (e) => {
+  taskManager.deleteLastElement();
+});
 
-renderTasks.loadTasks();
-renderTasks.addNewTask();
+deleteFirstElement.addEventListener("click", (e) => {
+  taskManager.deleteFirstElement();
+});
 
 // inputId.addEventListener("keypress", (e) => {
 //   if (e.key === "Enter") {
