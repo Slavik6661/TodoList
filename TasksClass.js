@@ -1,3 +1,5 @@
+import selectionOfElements from "./selectElementsClass.js";
+let selectElements = new selectionOfElements();
 export default class TasksElements {
   constructor() {
     this.id = 0;
@@ -8,6 +10,9 @@ export default class TasksElements {
     this.todoListli;
     this.newContent;
     this.inputId;
+    this.arrayTodoList = [];
+    this.btnEveryEvenState;
+    this.btnEachIsNotEvenState;
   }
 
   createNewDiv(value) {
@@ -23,7 +28,10 @@ export default class TasksElements {
     this.deleteButton.className = "deleteBtn";
     this.deleteButton.id = this.id;
 
-    this.deleteButton.addEventListener("click", (e) => {});
+    this.deleteButton.addEventListener("click", (e) => {
+      this.deleteTask(e.target.id);
+      this.id = 0;
+    });
   }
 
   createContentTask() {
@@ -55,21 +63,20 @@ export default class TasksElements {
     }
   }
 
-  addNewTask(arrayTodoList) {
+  addNewTask() {
     this.inputId = document.getElementById("InputID");
     this.inputId.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         if (this.inputId.value === "") {
           console.log("error");
         } else {
-          arrayTodoList.push({
+          this.arrayTodoList.push({
             id: this.id,
             text: this.inputId.value,
             completed: false,
           });
-          localStorage.setItem("tasks", JSON.stringify(arrayTodoList));
+          localStorage.setItem("tasks", JSON.stringify(this.arrayTodoList));
           this.renderTasks(this.inputId.value);
-          this.id++;
           this.inputId.value = "";
         }
       }
@@ -78,17 +85,28 @@ export default class TasksElements {
 
   deleteTask(idElementToRemove) {
     idElementToRemove = Number(idElementToRemove);
-    storedTasks = JSON.parse(localStorage.getItem("tasks"));
-    recordInLocalStorage((storedTasks = []));
-    todoListli.innerText = "";
+    this.storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (this.arrayTodoList.length === 0) {
+      this.arrayTodoList = [...this.storedTasks];
+    }
 
-    arrayTodoList.splice(idElementToRemove, 1);
-    console.log(arrayTodoList);
-    recordInLocalStorage(arrayTodoList);
-    storedTasks = JSON.parse(localStorage.getItem("tasks"));
-    id = 0;
-    loadTasks(storedTasks);
-    selectElements.highlightEveryEven(btnEveryEvenState);
-    selectElements.highlightEveryOdd(btnEachIsNotEvenState);
+    localStorage.setItem("tasks", JSON.stringify((this.storedTasks = [])));
+
+    this.todoListli.innerText = "";
+
+    this.arrayTodoList.splice(idElementToRemove, 1);
+
+    localStorage.setItem("tasks", JSON.stringify(this.arrayTodoList));
+    this.storedTasks = JSON.parse(localStorage.getItem("tasks"));
+    this.id = 0;
+    this.loadTasks(this.storedTasks);
+    this.btnEveryEvenState = JSON.parse(
+      localStorage.getItem("btnEveryEvenState")
+    );
+    this.btnEachIsNotEvenState = JSON.parse(
+      localStorage.getItem("btnEachIsNotEvenState")
+    );
+    selectElements.highlightEveryEven(this.btnEveryEvenState);
+    selectElements.highlightEveryOdd(this.btnEachIsNotEvenState);
   }
 }

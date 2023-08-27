@@ -5,29 +5,35 @@ let todoListli = document.getElementById("todo__item");
 let btnEveryEven = document.getElementById("highlight_Every_Even");
 let btnEachIsNotEven = document.getElementById("highlight_Every_Odd_One");
 
-let arrayTodoList = [];
-let id = 0;
 let btnEveryEvenState = false;
 let btnEachIsNotEvenState = false;
-
+localStorage.setItem("btnEveryEvenState", JSON.stringify(btnEveryEvenState));
+localStorage.setItem(
+  "btnEachIsNotEvenState",
+  JSON.stringify(btnEachIsNotEvenState)
+);
 let renderTasks = new createTasks();
 let selectElements = new selectElementsClass();
 
-if (arrayTodoList.length === 0) {
-  arrayTodoList = renderTasks.loadTasks() || [];
-}
-
-renderTasks.addNewTask(arrayTodoList);
-
 btnEveryEven.addEventListener("click", (e) => {
   btnEveryEvenState = !btnEveryEvenState;
+  localStorage.setItem("btnEveryEvenState", JSON.stringify(btnEveryEvenState));
   selectElements.highlightEveryEven(btnEveryEvenState);
 });
 
 btnEachIsNotEven.addEventListener("click", (e) => {
   btnEachIsNotEvenState = !btnEachIsNotEvenState;
+
+  localStorage.setItem(
+    "btnEachIsNotEvenState",
+    JSON.stringify(btnEachIsNotEvenState)
+  );
+
   selectElements.highlightEveryOdd(btnEachIsNotEvenState);
 });
+
+renderTasks.loadTasks();
+renderTasks.addNewTask();
 
 // inputId.addEventListener("keypress", (e) => {
 //   if (e.key === "Enter") {
