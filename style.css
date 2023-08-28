@@ -1,0 +1,150 @@
+
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center   
+}
+.Additional_options{
+    display: grid;
+    height: 250px; 
+}
+
+
+.content{
+    background-color: #f4f4f4;
+    width: 800px;
+    height: 800px;
+    margin: 0 auto;
+    margin-left: 10px;
+    margin-right: 0px;
+}
+
+.tasck-input{
+    width: 500px;
+    height: 50px;
+    font-size: 23px;
+    border: 0;
+    border-bottom: 1px solid #000;
+    background-color: rgba(0,0,0,0);
+    outline: 0; 
+}
+.tasck-block{ 
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.todoTask{
+    width: 500px;
+    height: 50px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    background-color: rgb(220, 241, 234);
+}
+.todo__item{
+    list-style-type: none; 
+}
+.blokTask{
+    height: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.deleteBtn{
+    width: 48px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    border: 0px;
+    padding: 0px;
+    background-image: url('/img/icons8-удалить-навсегда-48.png');
+    background-repeat: no-repeat;
+}
+.deleteBtn:hover{
+    width: 48px;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    border: 0px;
+    padding: 0px;
+    background-image: url('/img/icons8-удалить-навсегда-48.png');
+    background-repeat: no-repeat;
+    background-color: rgb(207, 87, 93);
+}
+
+
+
+.todoTaskActive_Every_Even{
+    width: 500px;
+    height: 50px;
+    margin-right: 0px;
+    margin-left: 125px;
+    margin-top: 0px;
+    border-radius: 3px;
+    background-color: rgb(26, 221, 156);
+}
+
+.todoTaskActive_Every_Odd_One{
+    width: 500px;
+    height: 50px;
+    margin-right: 0px;
+    margin-left: 125px;
+    margin-top: 0px;
+    border-radius: 3px;
+    background-color: rgb(101, 156, 238);
+}
+
+.highlight_Every_Even{
+    width: auto;
+    height: 50px;
+}
+
+.highlight_Every_Odd_One{
+    width: auto;
+    height: 50px;
+}
+
+.delete_first_element{
+    width: auto;
+    height: 50px;
+}
+
+.delete_last_element{
+    width: auto;
+    height: 50px
+}
+.in-progress{
+    
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 5px;
+    padding: 1px;
+    border: 1px;
+    font-size: 40px;
+    color: white;
+    background-color: #20b63d;
+    background-image: url('./img/icons8-добавить-50.png');
+    background-repeat: no-repeat;
+}
+
+.in-progress-complied{
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 5px;
+    padding: 1px;
+    border: 1px;
+    font-size: 40px;
+    color: white;
+    background-color: #3adb8a;
+    background-image: url('./img/icons8-галочка-48.png');
+    background-repeat: no-repeat;
+}
