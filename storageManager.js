@@ -1,13 +1,22 @@
 export default class StorageManager {
   constructor() {}
 
-  getButtonStates() {
-    return JSON.parse(localStorage.getItem("btnStates"));
+  getButtonStatesEveryEven() {
+    return JSON.parse(localStorage.getItem("btnEveryEvenState"));
   }
 
-  setButtonStates(states) {
-    localStorage.setItem("btnStates", JSON.stringify(states));
+  getButtonStatesNotEvenState() {
+    return JSON.parse(localStorage.getItem("btnEachIsNotEvenState"));
   }
+ 
+  setButtonStatesEveryEven(states) {
+    localStorage.setItem("btnEveryEvenState", JSON.stringify(states));
+  }
+
+  setButtonStatesNotEvenState(states) {
+    localStorage.setItem("btnEachIsNotEvenState", JSON.stringify(states));
+  }
+
 
   getStoredTasks() {
     return JSON.parse(localStorage.getItem("tasks")) || [];

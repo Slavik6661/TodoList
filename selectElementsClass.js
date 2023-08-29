@@ -1,12 +1,18 @@
+import StorageManager from "./storageManager.js";
+let storageManager=new StorageManager()
+
 export default class selectionOfElements {
   constructor() {
     this.allTask;
+   
   }
 
-  highlightEveryEven(btnEveryEvenState) {
+  highlightEveryEven() {
+    let btnEveryEvenState=storageManager.getButtonStatesEveryEven()
+   
     this.allTask = document.querySelectorAll(".todoTask");
 
-    if (btnEveryEvenState) {
+    if ( btnEveryEvenState) {
       this.allTask.forEach((element, index) => {
         if (index % 2 === 1) {
           element.classList.add("todoTaskActive_Every_Even");
@@ -19,7 +25,8 @@ export default class selectionOfElements {
     }
   }
 
-  highlightEveryOdd(btnEachIsNotEvenState) {
+  highlightEveryOdd() {
+    let btnEachIsNotEvenState=storageManager.getButtonStatesNotEvenState()
     this.allTask = document.querySelectorAll(".todoTask");
 
     if (btnEachIsNotEvenState) {
