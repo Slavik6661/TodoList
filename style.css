@@ -2,7 +2,8 @@
 body {
     height: 100%;
     display: flex;
-    justify-content: center   
+    justify-content: center; 
+    overflow:hidden
 }
 .Additional_options{
     display: grid;
@@ -13,11 +14,29 @@ body {
 .content{
     background-color: #f4f4f4;
     width: 800px;
-    height: 800px;
+    height: 910px;
     margin: 0 auto;
     margin-left: 10px;
     margin-right: 0px;
+    overflow: auto;
+    border-radius: 10px;
 }
+
+.content::-webkit-scrollbar{
+    width: 10px;
+    background-color: #f9f9fd;
+}
+
+.content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #18aaaa;
+  }
+  
+.content::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background-color: #f9f9fd;
+  }
 
 .tasck-input{
     width: 500px;
@@ -36,18 +55,17 @@ body {
 
 .todoTask{
     width: 500px;
-    height: 50px;
+    height: auto;
     margin-right: 0px;
     margin-left: 0px;
     margin-top: 0px;
     background-color: rgb(220, 241, 234);
+    font-size: 22px
 }
 .todo__item{
-    list-style-type: none; 
+    height: 100%;
 }
 .blokTask{
-    height: 50px;
-    margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
@@ -64,6 +82,7 @@ body {
     padding: 0px;
     background-image: url('/img/icons8-удалить-навсегда-48.png');
     background-repeat: no-repeat;
+    background-color: #f9f9fd;
 }
 .deleteBtn:hover{
     width: 48px;
@@ -79,26 +98,26 @@ body {
     background-color: rgb(207, 87, 93);
 }
 
-
-
 .todoTaskActive_Every_Even{
     width: 500px;
-    height: 50px;
+    height: auto;
     margin-right: 0px;
     margin-left: 0px;
     margin-top: 0px;
     border-radius: 3px;
     background-color: rgb(26, 221, 156);
+    font-size: 22px
 }
 
 .todoTaskActive_Every_Odd_One{
     width: 500px;
-    height: 50px;
+    height: auto;
     margin-right: 0px;
     margin-left: 0px;
     margin-top: 0px;
     border-radius: 3px;
     background-color: rgb(101, 156, 238);
+    font-size: 22px
 }
 
 .highlight_Every_Even{
@@ -121,7 +140,6 @@ body {
     height: 50px
 }
 .in-progress{
-    
     width: 50px;
     height: 50px;
     margin-right: 5px;
