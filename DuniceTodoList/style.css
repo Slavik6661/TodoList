@@ -1,0 +1,41 @@
+body {
+    height: 100%; 
+}
+.h1-title{
+    display: flex;
+    justify-content: center;
+}
+/* .mainContent{
+   display: flex;
+   justify-content: center;
+} */
+.content-addTask{
+    display: flex;
+   justify-content: center;
+}
+.input-todo{
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.content-todos {
+    display: flex;
+    justify-content: center;
+}
+
+.todo-list {
+
+}
+
+.text-todo {
+    padding-left: 40px;
+    width: 500px;
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    background-color: #cfcfcf;
+    border-radius: 5px;
+   
+}
